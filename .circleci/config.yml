@@ -5,7 +5,6 @@ jobs:
       - image: mcr.microsoft.com/dotnet/sdk:5.0
     steps:
       - checkout
-      - run:
-          name: Restore packages
-          command:
-            dotnet restore
+      - run: dotnet restore
+      - run: dotnet build
+      - run: dotnet run

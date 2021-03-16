@@ -1,0 +1,15 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+  imageName: 'attarasul/netdockernew:$(build.buildNumber)'
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerconnection-netdockernew'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
